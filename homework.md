@@ -1,0 +1,12 @@
+- Initialize the git
+- .gitignore
+- Create remote repo on github
+- push all code to remote origin
+- Play with routes and route execution ex. /hello, /, /test etc.
+- Order of routes a lot
+- Install postman app and make a workplace/collections with test api calls
+- Write logic to handle GET, POST, DELETE, UPDATE, PUT api calls and test them in postman.
+- Explore routing and use of ?, +, (), \*, in the routes.
+- Use of regex in routes /a/, /.\*fly$/.
+- Reading the query params in the routes.
+- Reading the dynamic routes.
