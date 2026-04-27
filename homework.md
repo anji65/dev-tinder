@@ -10,3 +10,8 @@
 - Use of regex in routes /a/, /.\*fly$/.
 - Reading the query params in the routes.
 - Reading the dynamic routes.
+- Multiple Route Handlers - Play with the code.
+- next()
+- next function and error along with res.send().
+- what is middleware? why do we need it?
+- How express JS basically handles requests behind the scenes.

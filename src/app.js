@@ -2,36 +2,25 @@ const express = require("express");
 
 const app = express();
 
-app.use(
-  "/user",
-  (req, res, next) => {
-    console.log("middleware 1");
-    // res.send("response 1!!");
-    next();
-  },
-  (req, res, next) => {
-    console.log("middleware 2");
-    // res.send("response 2!!");
-    next();
-  },
-  (req, res, next) => {
-    console.log("middleware 3");
-    res.send("response 3!!");
-    // next();
-  },
-);
+const { adminAuth, userAuth } = require("./middlewares/auth");
 
-app.get("/user", (req, res) => {
-  res.send({ firstName: "John", lastName: "Deo" });
+app.use("/admin", adminAuth);
+
+app.get("/user", userAuth, (req, res) => {
+  res.send("User data sent!");
 });
 
-// app.get("/user/:userId/:name/:password", (req, res) => {
-//   console.log(req.params);
-//   const userId = req.params.userId;
-//   const name = req.params.name;
-//   const password = req.params.password;
-//   res.send({ userId: userId, name: name, password: password });
-// });
+app.post("/user/login", (req, res) => {
+  res.send("User logged in successfully!");
+});
+
+app.get("/admin/getAllData", (req, res) => {
+  res.send("All data sent!");
+});
+
+app.delete("/admin/deleteUser", (req, res) => {
+  res.send("User deleted!");
+});
 
 app.listen(3000, () => {
   console.log("Server is successfully running on port 3000....");
