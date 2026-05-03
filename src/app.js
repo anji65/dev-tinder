@@ -15,6 +15,31 @@ app.post("/signup", async (req, res) => {
   }
 });
 
+//get user by email
+app.get("/user", async (req, res) => {
+  const userEmail = req.body.emailId;
+  try {
+    const user = await User.findOne({ emailId: userEmail });
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    } else {
+      res.send(user);
+    }
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching user" });
+  }
+});
+
+// get all users from db
+app.get("/feed", async (req, res) => {
+  try {
+    const users = await User.find({});
+    res.send(users);
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching users" });
+  }
+});
+
 // connect to the db
 connectDB()
   .then(() => {
