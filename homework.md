@@ -15,3 +15,14 @@
 - next function and error along with res.send().
 - what is middleware? why do we need it?
 - How express JS basically handles requests behind the scenes.
+
+- install cookie-parser
+- send dummy cookie to the user
+- create a /profile api and check if get the cookie back
+- install jsonwebtoken
+- In login api, after email and password validation, create a jwt token and send it to the user in cookies
+- read the cookies inside your profile API and find the logged in user.
+
+- userAuth middleware
+- add the userAuth middleware in profile api and new send connection request
+- set expiry of the jwt token and cookies
